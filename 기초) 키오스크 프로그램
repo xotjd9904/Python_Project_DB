@@ -1,0 +1,21 @@
+menu = {"스파게티" : 15000, "피자" : 24000, "햄버거" : 9000}
+desert = {"아이스크림" : 2000, "커피": 1500, "아이스티" : 3900}
+money = input("가진 돈의 금액을 입력하시오.")
+hungry = int(input("배가 고프십니까? (예:1, 아니오:0)"))
+
+while(True):
+    if hungry:
+        select = input(f"{list(menu.items())}\n드시고 싶으신 음식을 고르세요.")
+        if select in menu:
+            if (int(money) < menu[select]): print("돈이 부족하십니다.")
+            elif (int(money) >= menu[select]): print(f"곧 음식을 대접해 드리겠습니다. 잔돈은 {int(money) - menu[select]}입니다.")
+        else: print("메뉴가 없습니다.")
+    else:
+        select = input(f"{list(desert.items())}\n드시고 싶으신 음식을 고르세요.")
+        if select in desert:
+            if (int(money) < menu[select]): print("돈이 부족하십니다.")
+            elif (int(money) >= menu[select]): print(f"곧 음식을 대접해 드리겠습니다. 잔돈은 {int(money) - desert[select]}입니다.")
+        else: print("메뉴가 없습니다.")
+    
+    stop = input("종료하시겠습니까? (예:1, 아니오:0)")
+    if stop: break
